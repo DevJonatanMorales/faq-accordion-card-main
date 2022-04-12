@@ -36,7 +36,6 @@ body {
 
 .card {
   grid-area: main;
-  display: flex;
   width: 900px;
   height: 500px;
   background-color: white;
@@ -44,7 +43,7 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 100%;
-  grid-template-areas: "card__left" "card__right";
+  grid-template-areas: "card__left card__right" ;
 }
 
 .conte__img {
@@ -74,10 +73,37 @@ body {
   top: 40%;
   left: -95px;
 }
-.info {
-  grid-column: 2 /span 1;
+.card__right {
+  grid-area: card__right;
   padding-top: 4rem;
   padding-right: 4rem;
+}
+.card__right__title {
+  margin-bottom: 2.5rem;
+}
+.container__accordion {
+  height: 300px;
+}
+.accordion__titulo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--VeryDarkDesaturatedBlue);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 0;
+}
+.accordion-content {
+  border-bottom: 1px solid var(--LightGrayishBlue);
+}
+.paragraph {
+  overflow: hidden;
+  max-height: 0;
+  margin-top: 0;
+  color: var(--VeryDarkGrayishBlue);
+  font-size: 12px;
+  line-height: 1.5rem;
+  transition: all 0.3s ease-in;
 }
 .attribution {
   color: white;
@@ -85,7 +111,32 @@ body {
   font-size: 11px;
   text-align: center;
 }
-
 .attribution__link {
   color: hsl(228, 45%, 44%);
+}
+
+.toggle-icon > img {
+  height: 10px;
+  margin: auto;
+}
+
+/**
+*
+* Comentario hover
+*
+**/
+.accordion__titulo:hover {
+  color: var(--SoftRed);
+}
+.accordion__titulo:active {
+  font-weight: 700;
+  color: aqua;
+}
+/* - Comentario activos - */
+.accordion-content:target .paragraph {
+  max-height: 120px;
+  /* padding: 5px; */
+}
+.accordion-content:target .accordion__titulo > span > img {
+  transform: rotate(-180deg);
 }
