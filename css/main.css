@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-body {
+.body {
   background: linear-gradient(to bottom, var(--SoftViolet), var(--SoftBlue)); 
   height: 98vh;
   font-family: 'Kumbh Sans',
@@ -45,11 +45,19 @@ body {
   grid-template-rows: 100%;
   grid-template-areas: "card__left card__right" ;
 }
-
+/**
+*
+* Comentario card left
+* posicionamiento de img
+*
+**/
 .conte__img {
   grid-area: card__left;
   position: relative;
   overflow: hidden;
+}
+.conte__movil__img {
+  display: none;
 }
 .bg__img {
   position: absolute;
@@ -73,6 +81,13 @@ body {
   top: 40%;
   left: -95px;
 }
+
+/**
+*
+* Comentario card right
+* acordeon
+*
+**/
 .card__right {
   grid-area: card__right;
   padding-top: 4rem;
@@ -93,10 +108,15 @@ body {
   text-decoration: none;
   padding: 10px 0;
 }
+.toggle-icon {
+  height: 10px;
+  margin: auto;
+}
 .accordion-content {
   border-bottom: 1px solid var(--LightGrayishBlue);
 }
 .paragraph {
+  text-align: left;
   overflow: hidden;
   max-height: 0;
   margin-top: 0;
@@ -115,28 +135,168 @@ body {
   color: hsl(228, 45%, 44%);
 }
 
-.toggle-icon > img {
-  height: 10px;
-  margin: auto;
-}
-
 /**
 *
 * Comentario hover
 *
 **/
-.accordion__titulo:hover {
-  color: var(--SoftRed);
+@media (hover: hover) {
+  .accordion__titulo:hover {
+    color: var(--SoftRed);
+  }
 }
-.accordion__titulo:active {
-  font-weight: 700;
-  color: aqua;
+
+/**
+*
+* Comentario: acordeon
+*
+**/
+.accordion-content:target .accordion__titulo {
+  font-weight: 700;  
 }
-/* - Comentario activos - */
 .accordion-content:target .paragraph {
   max-height: 120px;
-  /* padding: 5px; */
 }
-.accordion-content:target .accordion__titulo > span > img {
+.accordion-content:target .toggle-icon {
   transform: rotate(-180deg);
+}
+
+/**
+*
+* Comentario movil
+*
+**/
+@media screen and (max-width: 390px) {
+  .card {
+    width: 95%;
+    height: 550px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "card__top" "card__bottom";
+  }
+
+  .conte__img,
+  .conte__img__box {
+    display: none;
+  }
+  .conte__movil__img {
+    display: flex;
+    grid-area: card__top;
+    position: relative;
+  }
+  .img__mobiel {
+    position: absolute;
+    top: -100%;
+    width: 80%;
+    left: 11%;
+  }
+  .card__right {
+    grid-area: card__bottom;
+    text-align: center;
+    padding: 1rem;
+  }
+  .container__accordion {
+    text-align: center;
+  }
+  .card__right__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 24px;
+  }
+  .accordion__titulo {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2.75) {
+  .card {
+    width: 95%;
+    height: 550px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "card__top" "card__bottom";
+  }
+
+  .conte__img,
+  .conte__img__box {
+    display: none;
+  }
+  .conte__movil__img {
+    display: flex;
+    grid-area: card__top;
+    position: relative;
+  }
+  .img__mobiel {
+    position: absolute;
+    top: -100%;
+    width: 80%;
+    left: 11%;
+  }
+  .card__right {
+    grid-area: card__bottom;
+    text-align: center;
+    padding: 1rem;
+  }
+  .container__accordion {
+    text-align: center;
+  }
+  .card__right__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 24px;
+  }
+  .accordion__titulo {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .card {
+    width: 95%;
+    height: 550px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "card__top" "card__bottom";
+  }
+  
+  .conte__img,
+  .conte__img__box {
+    display: none;
+  }
+  
+  .conte__movil__img {
+    display: flex;
+    grid-area: card__top;
+    position: relative;
+  }
+  
+  .img__mobiel {
+    position: absolute;
+    top: -100%;
+    width: 80%;
+    left: 11%;
+  }
+  
+  .card__right {
+    grid-area: card__bottom;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .container__accordion {
+    text-align: center;
+  }
+  
+  .card__right__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 24px;
+  }
+  
+  .accordion__titulo {
+    font-size: 14px;
+  }
 }
